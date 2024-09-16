@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+     body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: burlywood;
+        height: 100vh;
+        margin: 1;
+     }
+     .main {
+            width: 300px;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: azure;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <h1>Calculadora   Simples</h1>
+        <input type="text" id="resultado" readonly><br>
+        <input type="number" id="valor1" placeholder="Valor 1"><br>
+        <input type="number" id="valor2" placeholder="Valor 2"><br>
+        <button onclick="calcular('+')">+</button>
+        <button onclick="calcular('-')">-</button>
+        <button onclick="calcular('*')">*</button>
+        <button onclick="calcular('/')">/</button>
+        <button onclick="document.getElementById('resultado').value = ''; document.getElementById('valor1').value = ''; document.getElementById('valor2').value = '';">C</button>
+    </div>
+           
+
+<script>
+    function calcular(operacao) {
+        const valor1 = parseFloat(document.getElementById('valor1').value);
+        const valor2 = parseFloat(document.getElementById('valor2').value);
+        let resultado;
+
+     
+
+        switch (operacao) {
+            case '+': resultado = valor1 + valor2; break;
+            case '-': resultado = valor1 - valor2; break;
+            case '*': resultado = valor1 * valor2; break;
+            case '/':
+                if (valor2 === 0) {
+                    alert('Divisão por zero não permitida!');
+                    return;
+                }
+                resultado = valor1 / valor2;
+                break;
+        }
+
+        document.getElementById('resultado').value = resultado;
+    }
+</script>
+
+    
+ 
+</body>
+</html>
